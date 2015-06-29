@@ -1,0 +1,27 @@
+build/debug/dlvdb_src/input/DBInputBuilder.o: \
+ src/dlvdb_src/input/DBInputBuilder.cpp \
+ src/dlvdb_src/input/DBInputBuilder.h \
+ src/dlvdb_src/input/../data/DBProgram.h \
+ src/dlvdb_src/input/../data/DBRule.h \
+ src/dlvdb_src/input/../data/DBLiteral.h \
+ src/dlvdb_src/input/../data/DBAtom.h \
+ src/dlvdb_src/input/../data/DBTerm.h \
+ src/dlvdb_src/input/../data/../../util/Assert.h \
+ src/dlvdb_src/input/../data/../../util/Constants.h \
+ src/dlvdb_src/input/../data/DBAggregateElement.h \
+ src/dlvdb_src/input/../data/Metadata.h \
+ src/dlvdb_src/input/../data/../../depgraph/LabeledDependencyGraph.h \
+ src/dlvdb_src/input/../data/../../depgraph/DependencyGraph.h \
+ src/dlvdb_src/input/../data/../../depgraph/DepGraphNoStrategy.h \
+ src/dlvdb_src/input/../data/../../depgraph/../util/Assert.h \
+ src/dlvdb_src/input/../data/../../depgraph/../util/Constants.h \
+ src/dlvdb_src/input/../data/../../util/DBConnection.h \
+ src/dlvdb_src/input/../data/../../util/Constants.h \
+ src/dlvdb_src/input/../data/DBPredicateNames.h \
+ src/dlvdb_src/input/../data/DBNamesTable.h \
+ src/dlvdb_src/input/../data/DBNamesItem.h \
+ src/dlvdb_src/input/../data/DBSubProgram.h \
+ src/dlvdb_src/input/../data/SafetyException.h \
+ src/dlvdb_src/input/../../input/InputBuilder.h \
+ src/dlvdb_src/input/../../util/DBConnection.h \
+ src/dlvdb_src/input/../../util/Utils.h

@@ -1,0 +1,26 @@
+build/debug/dlvdb_src/queries/SQLStrategyPostgreSQL.o: \
+ src/dlvdb_src/queries/SQLStrategyPostgreSQL.cpp \
+ src/dlvdb_src/queries/SQLStrategyPostgreSQL.h \
+ src/dlvdb_src/queries/SQLStrategy.h \
+ src/dlvdb_src/queries/../data/DBProgram.h \
+ src/dlvdb_src/queries/../data/DBRule.h \
+ src/dlvdb_src/queries/../data/DBLiteral.h \
+ src/dlvdb_src/queries/../data/DBAtom.h \
+ src/dlvdb_src/queries/../data/DBTerm.h \
+ src/dlvdb_src/queries/../data/../../util/Assert.h \
+ src/dlvdb_src/queries/../data/../../util/Constants.h \
+ src/dlvdb_src/queries/../data/DBAggregateElement.h \
+ src/dlvdb_src/queries/../data/Metadata.h \
+ src/dlvdb_src/queries/../data/../../depgraph/LabeledDependencyGraph.h \
+ src/dlvdb_src/queries/../data/../../depgraph/DependencyGraph.h \
+ src/dlvdb_src/queries/../data/../../depgraph/DepGraphNoStrategy.h \
+ src/dlvdb_src/queries/../data/../../depgraph/../util/Assert.h \
+ src/dlvdb_src/queries/../data/../../depgraph/../util/Constants.h \
+ src/dlvdb_src/queries/../data/../../util/DBConnection.h \
+ src/dlvdb_src/queries/../data/../../util/Constants.h \
+ src/dlvdb_src/queries/../data/DBPredicateNames.h \
+ src/dlvdb_src/queries/../data/DBNamesTable.h \
+ src/dlvdb_src/queries/../data/DBNamesItem.h \
+ src/dlvdb_src/queries/../data/DBSubProgram.h \
+ src/dlvdb_src/queries/../data/SafetyException.h \
+ src/dlvdb_src/queries/../../util/Constants.h

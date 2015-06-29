@@ -1,0 +1,8 @@
+digraph Component_Graph {
+1->0[color= blue];
+2->0[color= red];
+0 [label= "a  "];
+1 [label= "b  "];
+2 [label= "c  "];
+3 [label= "d  "];
+}

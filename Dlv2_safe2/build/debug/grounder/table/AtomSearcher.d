@@ -1,0 +1,31 @@
+build/debug/grounder/table/AtomSearcher.o: \
+ src/grounder/table/AtomSearcher.cpp \
+ src/grounder/table/../../util/Options.h \
+ src/grounder/table/../../util/Constants.h \
+ src/grounder/table/../../util/Assert.h src/grounder/table/AtomSearcher.h \
+ src/grounder/table/../hash/HashVecInt.h \
+ src/grounder/table/../hash/../../util/Constants.h \
+ src/grounder/table/../hash/Hashable.h \
+ src/grounder/table/../hash/../term/Term.h \
+ src/grounder/table/../hash/../term/../hash/Hashable.h \
+ src/grounder/table/../hash/../term/../../util/Constants.h \
+ src/grounder/table/../atom/ClassicalLiteral.h \
+ src/grounder/table/../atom/Atom.h \
+ src/grounder/table/../atom/AggregateElement.h \
+ src/grounder/table/../atom/../../util/Constants.h \
+ src/grounder/table/../atom/../term/Term.h \
+ src/grounder/table/../atom/../atom/Predicate.h \
+ src/grounder/table/../atom/../atom/../hash/Hashable.h \
+ src/grounder/table/../atom/../atom/../hash/HashVecInt.h \
+ src/grounder/table/../atom/../atom/../hash/HashString.h \
+ src/grounder/table/../atom/ChoiceElement.h \
+ src/grounder/table/../atom/Predicate.h \
+ src/grounder/table/../atom/../table/TermTable.h \
+ src/grounder/table/../atom/../table/../term/Term.h \
+ src/grounder/table/../atom/../table/../term/ConstantTerm.h \
+ src/grounder/table/../atom/../table/../term/Term.h \
+ src/grounder/table/../atom/../table/../term/../hash/HashString.h \
+ src/grounder/table/../atom/../table/../hash/Hashable.h \
+ src/grounder/table/PredicateTable.h \
+ src/grounder/table/../atom/Predicate.h \
+ src/grounder/table/../../util/Timer.h
