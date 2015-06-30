@@ -8,23 +8,35 @@
 
 #include "Simplifier.h"
 #include "ProgramGrounder.h"
+#include "iostream"
 namespace DLV2 {
 namespace grounder {
-
 	bool Simplifier::simplifier(Rule*& currentRule,const vector<vector<unsigned>>& tableSearcher)
 	{
-		if(currentRule->isChoiceRule()) //salta
+		if(currentRule->isChoiceRule()) {//salta
+			cout<<"regola choice salta";
+			currentRule->print();
 			return false;
+		}
+
+		cout<<"inizio semplificazione regola: ";
+		currentRule->print();
 		int sizeHead=currentRule->getSizeHead();
 		bool truthValue=!currentRule->areThereUndefinedAtomInBody() && sizeHead==1;
 		unsigned index_head_atom=0;
 		Atom* searchAtom=0;
+
 		for(auto atom=currentRule->getBeginHead();atom!=currentRule->getEndHead();++atom,++index_head_atom)
 		{
+			cout<<"entro nel for con atomo corrente: ";
+			(*atom)->print();
+			cout<<endl;
 			PredicateExtension* predicateExt=PredicateExtTable::getInstance()->getPredicateExt((*atom)->getPredicate()->getIndex());
 			searchAtom=predicateExt->getAtom((*atom));
 			if(searchAtom==nullptr)
 			{
+				cout<<"atomo non presente in tabella (aggiungo)";
+				(*atom)->print();
 				(*atom)->setFact(truthValue);
 				currentRule->setAtomToSimplifyInHead(index_head_atom,truthValue);
 				for(unsigned i=0;i<tableSearcher[index_head_atom].size();++i)
@@ -32,8 +44,22 @@ namespace grounder {
 			}
 			else
 			{
-				if(searchAtom->isFact() && sizeHead>1) //disgiunzione quindi torna true e ignora questa regola
+				cout<<"atomo presente in tabella"<<endl;
+				if(searchAtom->isFact() && sizeHead>1){ //disgiunzione quindi torna true e ignora questa regola
+					cout<<"disgiunzione con atomo in testa vero...regola saltata"<<endl;
 					return true;
+				}
+				if(sizeHead==1 && truthValue)
+				{
+					cout<<"singolo atomo testa vera ";
+					(*atom)->print();
+					cout<<endl;
+					currentRule->setAtomToSimplifyInHead(index_head_atom,truthValue);
+					continue;
+				}
+				cout<<"atomo non semplificabile (indefinito)"<<endl;
+				currentRule->setAtomToSimplifyInHead(index_head_atom,false);
+
 			}
 		}
 		return false;
