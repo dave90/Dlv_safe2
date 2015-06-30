@@ -11,8 +11,36 @@
 namespace DLV2 {
 namespace grounder {
 
-	void Simplifier::simplifier(Rule*& currentRule,const vector<vector<unsigned>>& tableSearcher)
+	bool Simplifier::simplifier(Rule*& currentRule,const vector<vector<unsigned>>& tableSearcher)
 	{
+		if(currentRule->isChoiceRule()) //salta
+			return false;
+		int sizeHead=currentRule->getSizeHead();
+		bool truthValue=!currentRule->areThereUndefinedAtomInBody() && sizeHead==1;
+		unsigned index_head_atom=0;
+		Atom* searchAtom=0;
+		for(auto atom=currentRule->getBeginHead();atom!=currentRule->getEndHead();++atom,++index_head_atom)
+		{
+			PredicateExtension* predicateExt=PredicateExtTable::getInstance()->getPredicateExt((*atom)->getPredicate()->getIndex());
+			searchAtom=predicateExt->getAtom((*atom));
+			if(searchAtom==nullptr)
+			{
+				(*atom)->setFact(truthValue);
+				currentRule->setAtomToSimplifyInHead(index_head_atom,truthValue);
+				for(unsigned i=0;i<tableSearcher[index_head_atom].size();++i)
+					predicateExt->addAtom(tableSearcher[index_head_atom][i],*atom);
+			}
+			else
+			{
+				if(searchAtom->isFact() && sizeHead>1) //disgiunzione quindi torna true e ignora questa regola
+					return true;
+			}
+		}
+		return false;
+	}
+}
+}
+
 
 //		Rule* ruleSimplified=new Rule;
 //		unsigned index_body_atom=0;
@@ -66,7 +94,7 @@ namespace grounder {
 //
 //		delete currentRule;
 //		currentRule=ruleSimplified;
-	}
+//	}
 
 //Atom* Simplifier::getSearchAtom(Atom& atom)
 //{
@@ -75,8 +103,4 @@ namespace grounder {
 //	searchAtom=predicateExt->getGenericAtom(atom);
 //	return searchAtom;
 //}
-
-
-}
-}
 
