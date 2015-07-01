@@ -5,7 +5,6 @@
  *      Author: Zeiven
  */
 
-
 #include "Simplifier.h"
 #include "ProgramGrounder.h"
 #include "iostream"
