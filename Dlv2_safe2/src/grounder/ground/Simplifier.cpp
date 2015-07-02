@@ -44,20 +44,29 @@ namespace grounder {
 			else
 			{
 				cout<<"atomo presente in tabella"<<endl;
-				if(searchAtom->isFact() && sizeHead>1){ //disgiunzione quindi torna true e ignora questa regola
-					cout<<"disgiunzione con atomo in testa vero...regola saltata"<<endl;
-					return true;
-				}
-				if(sizeHead==1 && truthValue)
+				if(truthValue)
 				{
-					cout<<"singolo atomo testa vera ";
-					(*atom)->print();
-					cout<<endl;
-					currentRule->setAtomToSimplifyInHead(index_head_atom,truthValue);
-					continue;
+					if(searchAtom->isFact())
+					{
+						currentRule->setAtomToSimplifyInHead(index_head_atom,truthValue);
+						return false;
+					}
+					else
+						searchAtom->setFact(true);
+						continue;
 				}
-				cout<<"atomo non semplificabile (indefinito)"<<endl;
-				currentRule->setAtomToSimplifyInHead(index_head_atom,false);
+
+				if(!(*atom)->isFact() && searchAtom->isFact())
+				{
+					for(unsigned  i=0;i<sizeHead;i++)
+					{
+						currentRule->setAtomToSimplifyInHead(i,true);
+					}
+					return false;
+				}
+//
+//				cout<<"atomo non semplificabile (indefinito)"<<endl;
+//				currentRule->setAtomToSimplifyInHead(index_head_atom,false);
 
 			}
 		}
