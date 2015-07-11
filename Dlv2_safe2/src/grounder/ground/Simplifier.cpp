@@ -13,29 +13,19 @@ namespace grounder {
 	bool Simplifier::simplifier(Rule*& currentRule,const vector<vector<unsigned>>& tableSearcher)
 	{
 		if(currentRule->isChoiceRule()) {//salta
-			cout<<"regola choice salta";
 			currentRule->print();
 			return false;
 		}
-
-		cout<<"inizio semplificazione regola: ";
-		currentRule->print();
 		int sizeHead=currentRule->getSizeHead();
 		bool truthValue=!currentRule->areThereUndefinedAtomInBody() && sizeHead==1;
 		unsigned index_head_atom=0;
 		Atom* searchAtom=0;
-
 		for(auto atom=currentRule->getBeginHead();atom!=currentRule->getEndHead();++atom,++index_head_atom)
 		{
-			cout<<"entro nel for con atomo corrente: ";
-			(*atom)->print();
-			cout<<endl;
 			PredicateExtension* predicateExt=PredicateExtTable::getInstance()->getPredicateExt((*atom)->getPredicate()->getIndex());
 			searchAtom=predicateExt->getAtom((*atom));
 			if(searchAtom==nullptr)
 			{
-				cout<<"atomo non presente in tabella (aggiungo)";
-				(*atom)->print();
 				(*atom)->setFact(truthValue);
 				currentRule->setAtomToSimplifyInHead(index_head_atom,truthValue);
 				for(unsigned i=0;i<tableSearcher[index_head_atom].size();++i)
@@ -43,7 +33,6 @@ namespace grounder {
 			}
 			else
 			{
-				cout<<"atomo presente in tabella"<<endl;
 				if(truthValue)
 				{
 					if(searchAtom->isFact())
@@ -64,10 +53,6 @@ namespace grounder {
 					}
 					return false;
 				}
-//
-//				cout<<"atomo non semplificabile (indefinito)"<<endl;
-//				currentRule->setAtomToSimplifyInHead(index_head_atom,false);
-
 			}
 		}
 		return false;
