@@ -12,8 +12,7 @@ namespace DLV2 {
 namespace grounder {
 	bool Simplifier::simplifier(Rule*& currentRule,const vector<vector<unsigned>>& tableSearcher)
 	{
-		if(currentRule->isChoiceRule()) {//salta
-			currentRule->print();
+		if(currentRule->isChoiceRule()) {
 			return false;
 		}
 		int sizeHead=currentRule->getSizeHead();
