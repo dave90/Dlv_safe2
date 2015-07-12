@@ -4,7 +4,6 @@
  *  Created on: 23/mar/2015
  *      Author: Zeiven
  */
-
 #include "Simplifier.h"
 #include "ProgramGrounder.h"
 #include "iostream"
@@ -12,9 +11,8 @@ namespace DLV2 {
 namespace grounder {
 	bool Simplifier::simplifier(Rule*& currentRule,const vector<vector<unsigned>>& tableSearcher)
 	{
-		if(currentRule->isChoiceRule()) {
+		if(currentRule->isChoiceRule())
 			return false;
-		}
 		int sizeHead=currentRule->getSizeHead();
 		bool truthValue=!currentRule->areThereUndefinedAtomInBody() && sizeHead==1;
 		unsigned index_head_atom=0;
@@ -41,15 +39,12 @@ namespace grounder {
 					}
 					else
 						searchAtom->setFact(true);
-						continue;
+					continue;
 				}
-
 				if(!(*atom)->isFact() && searchAtom->isFact())
 				{
 					for(unsigned  i=0;i<sizeHead;i++)
-					{
 						currentRule->setAtomToSimplifyInHead(i,true);
-					}
 					return false;
 				}
 			}
