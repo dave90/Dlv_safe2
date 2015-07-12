@@ -19,9 +19,6 @@ class Simplifier : public AbstractSimplifier
 	public:
 		Simplifier(){};
 		virtual bool simplifier(Rule*& ,const vector<vector<unsigned>>&);
-
-	private:
-
 };
 
 }
