@@ -1,5 +1,5 @@
 /*
- * simplifier.h
+ * AbstractSimplifier.h
  *
  *  Created on: 18/mar/2015
  *      Author: Zeiven
@@ -12,16 +12,11 @@
 namespace DLV2 {
 namespace grounder {
 
-class AbstractSimplifier
-{
-	public:
-
-		virtual bool simplifier(Rule*& ,const vector<vector<unsigned>>& )=0;
-
-	private:
-
-};
-
+	class AbstractSimplifier
+	{
+		public:
+			virtual bool simplifier(Rule*& ,const vector<vector<unsigned>>& )=0;
+	};
 }
 }
 
