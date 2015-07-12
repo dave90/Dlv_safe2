@@ -4,11 +4,8 @@
  *  Created on: 18/mar/2015
  *      Author: Zeiven
  */
-
 #ifndef DLV2_SAFE_SRC_GROUNDER_GROUND_SIMPLIFIER_H_
 #define DLV2_SAFE_SRC_GROUNDER_GROUND_SIMPLIFIER_H_
-
-
 #include "ProgramGrounder.h"
 #include "AbstractSimplifier.h"
 namespace DLV2 {
@@ -20,10 +17,6 @@ class Simplifier : public AbstractSimplifier
 		Simplifier(){};
 		virtual bool simplifier(Rule*& ,const vector<vector<unsigned>>&);
 };
-
 }
 }
-
-
-
 #endif /* DLV2_SAFE_SRC_GROUNDER_GROUND_SIMPLIFIER_H_ */
